@@ -15,12 +15,15 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
+
     @NotNull
     @Column(name = "nome")
     private String nome;
+
     @NotNull
     @Column(name = "senha")
     private String senha;
+
     @NotNull
     @Email
     @Column(name = "email")

@@ -8,21 +8,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "cardapio")
-public class CardapioModel {
+@Table(name = "pedidos")
+public class PedidosModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cardapio_id")
+    @Column(name = "pedidos_id")
     private Long id;
 
     @NotNull
-    @Column(name = "nome")
-    String nome;
+    @Column(name = "user_id")
+    private Long user_id;
 
     @NotNull
-    @Column(name = "valor")
-    double valor;
-
-    @Column(name = "descricao")
-    String descricao;
+    @Column(name = "cardapio_id")
+    private Long cardapio_id;
 }
