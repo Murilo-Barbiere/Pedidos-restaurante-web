@@ -2,7 +2,10 @@ package com.murilo_dev.system_pedidos.controller;
 
 import com.murilo_dev.system_pedidos.model.UserModel;
 import com.murilo_dev.system_pedidos.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,14 +17,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    //metodos user
-    @GetMapping("/retorna_users")
-    public Optional<List<UserModel>> retornasUserByID(){
-        return Optional.ofNullable(userService.retornaUsers());
+    //cria
+    @PostMapping("/registrar")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void registraUser(@Valid @RequestBody UserModel user){
+        userService.registraUser(user);
     }
 
-    @PostMapping("/registra_users")
-    public void registraUser(@RequestBody UserModel user){
-        userService.registraUser(user);
+    //mostra
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/retorna_users")
+    public List<UserModel> retornaUsers(){
+        return userService.retornaUsers();
     }
 }

@@ -17,8 +17,8 @@ public class UsuarioDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-       UserModel usermodel = userRepository.findByUserName(userName)
+    public UserDetails loadUserByUsername(String nome) throws UsernameNotFoundException {
+       UserModel usermodel = userRepository.findByNome(nome)
                .orElseThrow(()-> new UsernameNotFoundException("user nao existe"));
        return new UsuarioDetails(usermodel);
     }
