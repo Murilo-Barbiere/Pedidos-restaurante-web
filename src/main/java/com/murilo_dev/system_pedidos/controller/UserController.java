@@ -2,6 +2,7 @@ package com.murilo_dev.system_pedidos.controller;
 
 import com.murilo_dev.system_pedidos.model.UserModel;
 import com.murilo_dev.system_pedidos.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,12 +11,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
+    @Autowired
     private UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     //metodos user
     @GetMapping("/retorna_users")

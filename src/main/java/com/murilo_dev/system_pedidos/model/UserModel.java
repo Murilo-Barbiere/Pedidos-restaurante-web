@@ -28,4 +28,8 @@ public class UserModel {
     @Email
     @Column(name = "email")
     private String email;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
