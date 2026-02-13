@@ -28,8 +28,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/user/registrar").permitAll()
                         .requestMatchers(HttpMethod.GET, "/cardapio/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/cardapio/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,  "/cardapio/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/cardapio/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/pedidos/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

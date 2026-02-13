@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.Instant;
+
 @Getter
 @Setter
 @Entity
@@ -22,4 +24,7 @@ public class PedidosModel {
     @NotNull
     @Column(name = "cardapio_id")
     private Long cardapio_id;
+
+    @Column(name = "data_hora_pedido", insertable = false, updatable = false)
+    private Instant DataHoraPeido;
 }
