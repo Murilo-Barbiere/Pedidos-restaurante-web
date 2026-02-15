@@ -25,15 +25,12 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        // Permite tudo sem autenticação
                         .requestMatchers("/user/**").permitAll()
                         .requestMatchers("/cardapio/**").permitAll()
                         .requestMatchers("/pedidos/**").permitAll()
-                        .anyRequest().permitAll()  // Todas as requisições são permitidas
+                        .anyRequest().permitAll()
                 )
-                // Desabilita a autenticação HTTP Basic
                 .httpBasic(httpBasic -> httpBasic.disable())
-                // Desabilita o formulário de login padrão
                 .formLogin(formLogin -> formLogin.disable());
 
         return http.build();

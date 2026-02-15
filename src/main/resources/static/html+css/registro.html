@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registro</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d0d3d4;
+            text-align: center;
+        }
+
+        #titulo_pagina {
+            margin-top: 40px;
+            color: #333;
+        }
+
+        h1 {
+            margin-top: 40px;
+            color: #333;
+        }
+
+        #form_registrar {
+            background-color: white;
+            width: 320px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        #form_registrar input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #button_registrar {
+            width: 95%;
+            padding: 10px;
+            margin-top: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #button_registrar:hover {
+            background-color: #45a049;
+        }
+
+        #erro {
+            color: red;
+            margin-top: 10px;
+        }
+
+        #link_logar {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 id = titulo_pagina>Sistema de Pedidos</h1>
+
+    <form id = "form_registrar" onsubmit="registrar(event)">
+        <h2>cadastrar-se</h2>
+
+        <input type="text" placeholder="nome" id = "nome">
+        <input type="text" placeholder="email" id = "email">
+        <input type="password" id="senha" placeholder="senha">
+        <input type="password" id="senha_confirmacao" placeholder="confirme a senha">
+
+        <button type="submit" id = "button_registrar"> registrar </button>
+
+        <div id = "erro"></div>
+
+        <p id = "link_logar"> já tem uma conta?
+            <a href="login.html">logar</a>
+        </p>
+    </form>
+</body>
+</html>

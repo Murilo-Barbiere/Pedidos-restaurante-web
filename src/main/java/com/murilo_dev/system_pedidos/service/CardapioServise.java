@@ -13,11 +13,11 @@ public class CardapioServise {
     @Autowired
     private CardapioRepository cardapioRepository;
 
-    public CardapioModel addCardapio(CardapioModel cardapio){
+    public CardapioModel addCardapio(CardapioModel cardapio) {
         return cardapioRepository.save(cardapio);
     }
 
-    public List<CardapioModel> retornaCardapioCompleto(){
+    public List<CardapioModel> retornaCardapioCompleto() {
         return cardapioRepository.findAll();
     }
 
