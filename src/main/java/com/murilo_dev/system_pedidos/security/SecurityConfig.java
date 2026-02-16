@@ -26,7 +26,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/user/**").permitAll()
-                        .requestMatchers("/cardapio/**").permitAll()
+                        .requestMatchers("/cardapio/**").hasRole("ADMIN")
                         .requestMatchers("/pedidos/**").permitAll()
                         .anyRequest().permitAll()
                 )

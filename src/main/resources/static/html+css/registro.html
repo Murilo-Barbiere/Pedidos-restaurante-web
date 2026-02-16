@@ -53,7 +53,7 @@
             background-color: #45a049;
         }
 
-        #erro {
+        #errorMessage {
             color: red;
             margin-top: 10px;
         }
@@ -66,7 +66,7 @@
 
 </head>
 <body>
-    <h1 id = titulo_pagina>Sistema de Pedidos</h1>
+    <h1 id="titulo_pagina">Sistema de Pedidos</h1>
 
     <form id = "form_registrar" onsubmit="registrar(event)">
         <h2>cadastrar-se</h2>
@@ -78,11 +78,13 @@
 
         <button type="submit" id = "button_registrar"> registrar </button>
 
-        <div id = "erro"></div>
+        <div id = "errorMessage"></div>
 
         <p id = "link_logar"> já tem uma conta?
             <a href="login.html">logar</a>
         </p>
     </form>
+
+    <script src="/js/registrar.js"></script>
 </body>
 </html>

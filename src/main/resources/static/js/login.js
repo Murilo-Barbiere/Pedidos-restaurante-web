@@ -26,17 +26,17 @@ function logar(event) {
              else{
                  throw new Error('Erro no servidor');
              }
-        })
-        .then(userData => {
-            localStorage.setItem('user_nome', userData.nome);
-            localStorage.setItem('user_email', userData.email);
-            localStorage.setItem('user_role', userData.role);
-            localStorage.setItem('user_id', userData.id);
-            localStorage.setItem('is_logged_in', 'true');
+            })
+            .then(userData => {
+                localStorage.setItem('user_nome', userData.nome);
+                localStorage.setItem('user_email', userData.email);
+                localStorage.setItem('user_role', userData.role);
+                localStorage.setItem('user_id', userData.id);
+                localStorage.setItem('is_logged_in', 'true');
 
-            window.location.href = 'cardapio.html';
-        })
-        .catch(error => {
-            document.getElementById('errorMessage').innerHTML = error.message;
-        });
+                window.location.href = 'cardapio.html';
+            })
+            .catch(error => {
+                document.getElementById('errorMessage').innerHTML = error.message;
+            });
 }

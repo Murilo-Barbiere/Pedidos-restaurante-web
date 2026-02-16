@@ -22,9 +22,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/registrar")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void registraUser(@Valid @RequestBody UserModel user){
+    public ResponseEntity<?> registraUser(@Valid @RequestBody UserModel user){
         userService.registraUser(user);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/login")
@@ -42,9 +42,5 @@ public class UserController {
     public List<UserModel> retornaUsers(){
         return userService.retornaUsers();
     }
-    
-    @GetMapping("/busca_por_nome")
-    public ResponseEntity<UserModel> buscaPorNome(String nome){
-        return null;
-    }
+
 }
