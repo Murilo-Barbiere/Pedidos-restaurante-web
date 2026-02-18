@@ -27,10 +27,9 @@ public class pedidosController {
         return pedidosServise.retornPedidos();
     }
 
-    //fazer pedido
-
     //deletar pedido
 
     //mostrar pedidos do um X
 
+    //no func que deleta pedidos que
 }
