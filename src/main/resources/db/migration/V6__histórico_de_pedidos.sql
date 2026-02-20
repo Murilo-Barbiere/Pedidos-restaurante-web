@@ -9,14 +9,14 @@ create table historico_pedidos_realizados_dia(
      foreign key(cardapio_id) REFERENCES cardapio(cardapio_id)
 );
 
-create or replace function pedido_realizado(id_pedido_feito int)
-returns void as $$
+create or replace PROCEDURE pedido_realizado(id_pedido_feito int)
+LANGUAGE plpgsql
+AS $$
 DECLARE
-v_user_id int;
-	v_cardapio_id int;
-	v_data_hora_pedido_feito TIMESTAMP;
+    v_user_id int;
+        v_cardapio_id int;
+        v_data_hora_pedido_feito TIMESTAMP;
 begin
-        -- limpa registros antigos
     delete from historico_pedidos_realizados_dia
     where data_hora_pedido_entregue < now() - interval '24 hours';
 
@@ -33,5 +33,7 @@ begin
 
     insert into historico_pedidos_realizados_dia(user_id, cardapio_id, data_hora_pedido_feito)
     values(v_user_id, v_cardapio_id, v_data_hora_pedido_feito);
+
+    delete from pedidos where pedidos_id = id_pedido_feito;
 end;
-$$ LANGUAGE plpgsql;
+$$
