@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -26,5 +27,5 @@ public class PedidosModel {
     private Long cardapio_id;
 
     @Column(name = "data_hora_pedido", insertable = false, updatable = false)
-    private Instant DataHoraPeido;
+    private LocalDateTime DataHoraPeido;
 }

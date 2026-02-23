@@ -1,6 +1,6 @@
 package com.murilo_dev.system_pedidos.DTO;
 
-public enum RoleDto {
+public enum Role {
     ROLE_ADMIN,
     ROLE_USER
 }
