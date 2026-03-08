@@ -19,7 +19,12 @@ public class UsuarioDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(userModel.getRole().name()));
+        String role = userModel.getRole().name();
+        // Se não tiver ROLE_, adiciona
+        if (!role.startsWith("ROLE_")) {
+            role = "ROLE_" + role;
+        }
+        return List.of(new SimpleGrantedAuthority(role));
     }
 
     @Override
